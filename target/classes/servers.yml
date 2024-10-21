@@ -1,0 +1,10 @@
+routes:
+  - uri: http://localhost:8081
+    health: /health
+    path: /simple/api
+  - uri: http://localhost:8082
+    health: /health
+    path: /simple/api
+  - uri: http://localhost:8083
+    health: /health
+    path: /simple/api
