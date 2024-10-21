@@ -54,7 +54,7 @@ This API hosts the routing service. It balances the server load to the simple AP
 
 When the routing service receives a request for the simple POST API (mentioned above), it fetches the next available server from the heartbeat service and routes the request to the server.
 
-![[Routing Service.png]]
+![](Routing Service.png)
 
 Sample Routing CURL:
 ```
@@ -77,22 +77,22 @@ Sample Response:
 ```
 
 Database Snapshot:
-![[Database snapshot.png]]
+![](Database snapshot.png)
 
 #### The heartbeat service
 
 As the application starts, the servers.yml is scanned for all the configured servers. Each alive server is added to active server set while each inactive server is added to the stale server list.
 A server is considered alive if the health API configured returns OK status.
 
-![[Start up.png]]
+![](Start up.png)
 
 Every second the active server set is scanned and checked if all the servers are alive. If not they are added to the stale set.
 
-![[Active Server scheduler.png]]
+![](Active Server scheduler.png)
 
 Every 5 seconds the stale server set is scanned to check if any of the servers are back alive. Each alive server is then put back in the active server list.
 
-![[Stale Server scheduler.png]]
+![](Stale Server scheduler.png)
 
 A server status API is exposed by this layer to return the current status of all the configured servers.
 
