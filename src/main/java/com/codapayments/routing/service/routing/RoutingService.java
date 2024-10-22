@@ -1,10 +1,12 @@
-package com.codapayments.routing.service;
+package com.codapayments.routing.service.routing;
 
 import com.codapayments.routing.api.model.SimpleRequestDto;
 import com.codapayments.routing.api.model.SimpleResponseDto;
 import com.codapayments.routing.persistence.model.RoutingLog;
 import com.codapayments.routing.persistence.model.repositories.LogRepository;
+import com.codapayments.routing.service.heartbeat.HeartbeatService;
 import com.codapayments.routing.service.model.ServerInstance;
+import com.codapayments.routing.service.next.NextServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -27,6 +29,8 @@ public class RoutingService {
     private LogRepository logRepository;
     @Autowired
     private HeartbeatService heartbeatService;
+    @Autowired
+    private NextServerService nextServerService;
 
     /***
      *
@@ -35,7 +39,7 @@ public class RoutingService {
      * It checks the next active server from the heartbeat service and calls the downstream API
      */
     public SimpleResponseDto postRequest(final SimpleRequestDto request) {
-        final ServerInstance instance = heartbeatService.findNextActiveServer();
+        final ServerInstance instance = nextServerService.findNextActiveServer();
         if (Objects.isNull(instance)) throw new RuntimeException("No active server..");
         try {
             final LocalDateTime requestSentAt = LocalDateTime.now();

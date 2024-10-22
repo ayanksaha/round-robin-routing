@@ -1,7 +1,7 @@
 package com.codapayments.routing.api.controller;
 
-import com.codapayments.routing.service.HeartbeatService;
-import com.codapayments.routing.service.RoutingService;
+import com.codapayments.routing.service.heartbeat.HeartbeatService;
+import com.codapayments.routing.service.routing.RoutingService;
 import com.codapayments.routing.service.model.ServerInstance;
 import com.codapayments.routing.api.model.SimpleRequestDto;
 import com.codapayments.routing.api.model.SimpleResponseDto;
