@@ -3,7 +3,7 @@ package com.codapayments.routing.service.routing;
 import com.codapayments.routing.api.model.SimpleRequestDto;
 import com.codapayments.routing.api.model.SimpleResponseDto;
 import com.codapayments.routing.persistence.model.RoutingLog;
-import com.codapayments.routing.persistence.model.repositories.LogRepository;
+import com.codapayments.routing.persistence.repositories.LogRepository;
 import com.codapayments.routing.service.heartbeat.HeartbeatService;
 import com.codapayments.routing.service.model.ServerInstance;
 import com.codapayments.routing.service.next.NextServerService;

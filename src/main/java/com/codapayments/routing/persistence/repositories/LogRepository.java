@@ -1,4 +1,4 @@
-package com.codapayments.routing.persistence.model.repositories;
+package com.codapayments.routing.persistence.repositories;
 
 import com.codapayments.routing.persistence.model.RoutingLog;
 import org.springframework.data.jpa.repository.JpaRepository;
